@@ -1,0 +1,14 @@
+body{margin:0;padding:0;line-height: 1.2em;font:11px/175% Tahoma, Arial, Verdana, Helvetica, sans-serif;}
+html,button,input,select,textarea{font-family:sans-serif;}
+button,input,select,textarea{font-size:100%;margin:0;vertical-align:baseline;*vertical-align:middle;}
+button,input{line-height:normal;}
+button,input[type="button"],input[type="reset"],input[type="submit"]{cursor:pointer;-webkit-appearance:button;*overflow:visible;}
+button[disabled],input[disabled]{cursor:default;}
+input[type="search"]::-webkit-search-decoration,input[type="search"]::-webkit-search-cancel-button{-webkit-appearance:none;}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
+button,.button{padding:0.5em 1em;border-radius:3px;color:#eee;text-shadow:0 1px 0 black;font-family:'Droid Sans',sans-serif;text-decoration:none;background:#3d4555;background-image:linear-gradient(transparent, rgba(0, 0, 0, 0.2));border:1px solid #000000;box-shadow:inset 0 1px 1px rgba(255, 255, 255, 0.15),inset 0 0 5px rgba(255, 255, 255, 0.05),0 0 5px rgba(0, 0, 25, 0.5),0 5px 10px rgba(0, 0, 25, 0.3);}.loaded button,.loaded .button{transition:background-color 0.15s;}
+button:hover,.button:hover{background-color:#485164;}
+button:active,.button:active{transition:none;background:#323946;box-shadow:0 1px 1px rgba(255, 255, 255, 0.1),0 0 5px rgba(255, 255, 255, 0.05),inset 0 0 5px rgba(0, 0, 0, 0.4),inset 0 5px 10px rgba(0, 0, 0, 0.2);}
+button:focus,.button:focus{outline:none;}
+button.selected,.button.selected{background-color:#166f16;border-color:#000000;}button.selected:hover,.button.selected:hover{background-color:#1a841a;}
+button.selected:active,.button.selected:active{background-color:#125a12;}

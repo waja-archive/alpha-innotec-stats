@@ -24,7 +24,8 @@ switch ($_GET["context"]) {
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html><head><title>Statistics Report</title>
 <meta http-equiv="refresh" content="<?php echo $refreshtime; ?>" >
-<link rel="stylesheet" href="wwc.css">
+<!-- <link rel="stylesheet" href="wwc.css"> -->
+<link rel="stylesheet" href="chart.css">
 <script src="<?php echo $YCURL; ?>/yui/yui-min.js"></script>
 </head>
 <body>
@@ -177,6 +178,17 @@ printf("],");
 })();
 </script>
 
+</div>
+<div style="text-align:center">
+<a href="<?php echo $_SERVER['SCRIPT_NAME']; ?>" class="button" data-track="Outdoor">Aussentemperatur</a>
+&nbsp;&nbsp;
+<a href="<?php echo $_SERVER['SCRIPT_NAME']."?context=temperature"; ?>" class="button" data-track="Temperatures">Temperaturen</a>
+&nbsp;&nbsp;
+<a href="<?php echo $_SERVER['SCRIPT_NAME']."?context=timing"; ?>" class="button" data-track="Timing">Ablaufzeiten</a>
+&nbsp;&nbsp;
+<a href="<?php echo $_SERVER['SCRIPT_NAME']."?context=impulse"; ?>" class="button" data-track="Impulse">Verdichter-Impulse</a>
+&nbsp;&nbsp;
+<a href="<?php echo $_SERVER['SCRIPT_NAME']."?context=operation"; ?>" class="button" data-track="Operation">Betriebszeiten</a>
 </div>
 <?php 
 echo '</body></html>';
