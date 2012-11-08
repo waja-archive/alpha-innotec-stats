@@ -10,6 +10,11 @@ Connected to your network, there are 2 ports open on the Linux system on the mod
 
 Download the package into a DocumentRoot of you PHP enabled webserver and unpack it there.
 
+Installing the required software on Debian/Ubuntu:
+
+	aptitude install mysql-server libapache2-mod-php5 php5-mysql
+	service apache2 restart
+
 ### Dashboard
 
 ![alt dashboard example] (https://github.com/downloads/waja/alpha-innotec-stats/heating_dashboard.png)
