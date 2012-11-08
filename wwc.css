@@ -1,0 +1,87 @@
+body {
+	margin:0;
+	padding:0;
+	line-height: 1.2em;
+	font:11px/175% Tahoma, Arial, Verdana, Helvetica, sans-serif;
+	
+}
+body, ul, li, dl, dd, dt, table, td, input, select, h1, h2, h3, h4, h5, h6, p, hr {padding: 0; margin: 0;}
+dl, dd, dt, ul, li {list-style: none;}
+table, td, th {border-collapse: collapse; border: none; border-spacing: 0;}
+img {border: none; outline: none;}
+
+
+a {text-decoration: none; outline: none;}
+a img{border:none;}
+a, input {color: #4c4c4c;}
+a:hover {color: #aa0132;}
+
+h2 {font-size: 18px; margin-top: 2px; margin-bottom: 10px; border-bottom: 1px #aaa dotted;}
+
+
+#quotes {
+	background-color: #fff;
+	width: 520px;
+	margin: 0px auto;
+	
+	float: left;
+	
+}
+
+
+
+#quotes li {
+	background-color: #eee;
+	width: 480px;
+	border: 1px #aaa dotted;
+	margin: 10px;
+	padding: 10px;
+	float: left;
+	font-weight: bold;
+}
+#quotes li span {
+	font-weight: normal;
+	
+}
+
+#footer {
+	clear: left;
+	width: 100%;
+	border-top: 2px black groove;
+	background: #D4D0C8;
+	color: black;
+	text-align: right;
+	padding: 4px;
+	padding-right:60px;
+	position:fixed;
+	bottom:0px;
+	display:block;
+}
+
+#footer a{
+	color: #000;
+	text-decoration: underline;
+}
+
+
+
+span.dropt span {
+	display:none;
+	margin: 0; 
+	padding: 3px 3px 3px 3px; 
+	border-style:solid; 
+	border-color:black; 
+	border-width:1px;
+	float: right;
+	width: 280px;
+}
+span.dropt:hover span {
+	display:inline;
+	margin: -8px 0 0 0px;
+	background: #ffffff; 
+	position:static; 
+	z-index: 99;
+	/*top:-120px; 
+	left:-30px; */
+	
+} 

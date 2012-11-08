@@ -1,0 +1,9 @@
+<?php
+$myhost="localhost";
+$myuser="heating";
+$mypasswd="f00b4r";
+$mydatabase="heating";
+$mytemptable="temperature";
+$mytimetable="timing";
+$myoptable="operation";
+?>
