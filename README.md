@@ -6,7 +6,22 @@ Heatpumps produced by [Alpha-InnoTec] (http://www.alpha-innotec.de/) should be a
 
 Connected to your network, there are 2 ports open on the Linux system on the module. Port 23 (for telnet) and Port 8888 as control port. Login in via telnet is possible via user 'root' and empty password. For this project the port 8888 is the important part. Via this port we can communicate with the module. It should be possible to configure the module (and the heatpump), but for now I recommand to avoid that. Actually we just grab some condition and status values and store them into a MySQL database to get some nice graphs displayed.
 
-![alt temperatures example] (https://holle.cyconet.org/public.php?service=files&token=c41c69868d0c4d4129a0ed54df13964f5ec17bfe&file=/Pictures/heating.png)
-![alt dashboard example] (https://holle.cyconet.org/public.php?service=files&token=dc309a8e60267271cad7250542c7419c5e3d06ba&file=/Pictures/heating_dashboard.png)
-
 ## Installation
+
+Download the package into a DocumentRoot of you PHP enabled webserver and unpack it there.
+
+### Dashboard
+
+![alt dashboard example] (https://github.com/downloads/waja/alpha-innotec-stats/heating_dashboard.png)
+
+Just modify includes/config.php to your environment:
+
+	// connection to heatpump management module
+	$IpWwc = "192.168.178.252";
+	$WwcJavaPort = "8888";
+
+Point you browser to http://<yourserver>/<path>/wwc.php!
+
+### Statistics
+
+![alt temperatures example] (https://github.com/downloads/waja/alpha-innotec-stats/heating.png)

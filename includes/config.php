@@ -1,5 +1,5 @@
 <?php
-// Hier werden die Config Variablen gespeichert
+// connection to heatpump management module
 $IpWwc = "192.168.178.252";
 $WwcJavaPort = "8888";
 // URL (location) of ycharts
