@@ -12,8 +12,12 @@ Download the package into a DocumentRoot of you PHP enabled webserver and unpack
 
 Installing the required software on Debian/Ubuntu:
 
-	aptitude install mysql-server libapache2-mod-php5 php5-mysql
+	aptitude install libapache2-mod-php5
 	service apache2 restart
+
+Download the project (here to /var/www/heating)
+
+	git clone https://github.com/waja/alpha-innotec-stats.git /var/www/heating
 
 ### Dashboard
 
@@ -30,3 +34,32 @@ Point you browser to http://&lt;yourserver&gt;/&lt;path&gt;/wwc.php!
 ### Statistics
 
 ![alt temperatures example] (https://github.com/downloads/waja/alpha-innotec-stats/heating.png)
+
+For storing data, we need a database.
+
+	aptitude install mysql-server php5-mysql
+
+Now we need a database and an user for accessing the database. In the shipped examples we use:
+
+	$myhost="localhost";
+	$myuser="heating";
+	$mypasswd="f00b4r";
+	$mydatabase="heating";
+
+Maybe you will adjust these, or you copy them to includes/
+
+	cp examples/sql_cred.php.example includes/sql_cred.php
+
+Lets create a database:
+
+	mysql -p < examples/heating_structure.sql
+
+To collect the data, we need to run a pooler (and install the php5 cli binary)
+
+	aptitude install php5-cli
+
+Please add the following via 'crontab -e', but try avoiding this as root
+
+	* * * * * php -q /var/www/heating/poller.php
+
+Feel free to adjust the frequency running the poller script to your needs.
