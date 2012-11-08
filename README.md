@@ -20,7 +20,7 @@ Just modify includes/config.php to your environment:
 	$IpWwc = "192.168.178.252";
 	$WwcJavaPort = "8888";
 
-Point you browser to http://<yourserver>/<path>/wwc.php!
+Point you browser to http://&lt;yourserver&gt;/&lt;path&gt;/wwc.php!
 
 ### Statistics
 
