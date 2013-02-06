@@ -44,7 +44,6 @@ $msg = pack('N*',3004);
 $send=socket_write($socket, $msg, 4); //3004 senden
 //printf('Bytes send:%d <br>',$send);
 
-
 $msg = pack('N*',0);
 //printf('msg:%s <br>',ord($msg));
 $send=socket_write($socket, $msg, 4); //0 senden 
@@ -64,8 +63,6 @@ $Test = unpack('N*',$Test);
 //printf('L&auml;nge der nachfolgenden Werte:%s <br>',implode($Test));
 
 $JavaWerte = implode($Test);
-//printf('============================================================== <br>');
-
 for ($i = 0; $i < $JavaWerte; ++$i)//vorwärts
 {
 socket_recv($socket,$InBuff[$i],4,MSG_WAITALL);  // Lesen, sollte 3004 zurückkommen
