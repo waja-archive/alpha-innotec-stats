@@ -51,7 +51,8 @@ $JavaWerte = implode($Test);
 for ($i = 0; $i < $JavaWerte; ++$i)//vorwärts
 {
 socket_recv($socket,$InBuff[$i],4,MSG_WAITALL);  // Lesen, sollte 3004 zurückkommen
-$daten_raw[$i] = implode(unpack('N*',$InBuff[$i]));
+//$daten_raw[$i] = implode(unpack('N*',$InBuff[$i]));
+$daten_raw[$i] = implode(unpack('l',strrev($InBuff[$i])));
 //printf('InBuff(%d): %d <br>',$i,$daten_raw[$i]);
 }
 //socket wieder schliessen 
