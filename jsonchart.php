@@ -22,7 +22,7 @@ switch ($_GET["context"]) {
 		$query = "SELECT `timestamp`, `56`, `57`, `60`, `63`, `64`, `65` FROM `$myoptable`WHERE timestamp > ((SELECT UNIX_TIMESTAMP()) - $timeframe)";
 		break;
 	default:
-		$query = "SELECT (`timestamp`*1000) as 'timestamp',  ((`15`)*0.1) as 'actualtemp',  ((`16`)*0.1) as 'avgtemp' FROM `$mytemptable`WHERE timestamp > ((SELECT UNIX_TIMESTAMP()) - $timeframe)";
+		$query = "SELECT (`timestamp`*1000) as 'timestamp',  ((`15`)*0.1) as 'actualtemp',  ((`16`)*0.1) as 'avgtemp', ((`17`)*0.1) as 'boilertemp' FROM `$mytemptable`WHERE timestamp > ((SELECT UNIX_TIMESTAMP()) - $timeframe)";
 	}
 
 //Connect to the database. (host,username,password,database)
@@ -48,6 +48,9 @@ try {
 							break;
 						case actualtemp:
 							$data[] = "[$row[timestamp], $row[actualtemp]]";
+							break;
+						case boilertemp:
+							$data[] = "[$row[timestamp], $row[boilertemp]]";
 							break;
 						default:
 							$data[] = "[$row[timestamp], $row[actualtemp], $row[avgtemp]]";

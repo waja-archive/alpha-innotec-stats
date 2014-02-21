@@ -9,11 +9,18 @@
 <script>
 var chart; // global
 
+Highcharts.setOptions({
+    global: {
+        useUTC: false
+    }
+});
+
+
 $(function () {
 
     var seriesOptions = [],
 	colors = Highcharts.getOptions().colors;
-        names = ['avgtemp', 'actualtemp'];
+        names = ['avgtemp', 'actualtemp','boilertemp'];
 
     seriesCounter = 0;
 
@@ -36,7 +43,11 @@ $(function () {
 
             rangeSelector: {
 		        buttons: [
-{
+			{
+					type : 'hour',
+					count : 1,
+					text : '1h'
+			},{
                             type: 'day',
                             count: 1,
                             text: '1d'
@@ -91,7 +102,8 @@ $(function () {
 
 	tooltip: {
 		    	pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b><br/>', //({point.change}%)
-		    	valueDecimals: 1
+		    	valueDecimals: 1,
+			valueSuffix: '°C'
 	},
             series: seriesOptions
         });
