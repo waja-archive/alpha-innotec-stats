@@ -21,7 +21,7 @@ Download the project (here to /var/www/heating)
 
 ### Dashboard
 
-![alt dashboard example] (https://github.com/downloads/waja/alpha-innotec-stats/heating_dashboard.png)
+![alt dashboard example] (https://cloud.github.com/downloads/waja/alpha-innotec-stats/heating_dashboard.png)
 
 Just modify includes/config.php to your environment:
 
@@ -33,7 +33,7 @@ Point you browser to http://&lt;yourserver&gt;/&lt;path&gt;/wwc.php!
 
 ### Statistics
 
-![alt temperatures example] (https://github.com/downloads/waja/alpha-innotec-stats/heating.png)
+![alt temperatures example] (https://cloud.github.com/downloads/waja/alpha-innotec-stats/heating.png)
 
 For storing data, we need a database.
 
