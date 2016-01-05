@@ -8,12 +8,12 @@ include "includes/config.php";
 // database config
 include "includes/sql_cred.php";
 // database query
-switch ($_GET["context"]) {
-	case timing:
+switch (filter_input(INPUT_GET, 'context')) {
+	case "timing":
 		$query = "SELECT `timestamp`, `67`, `68`, `70`, `71`, `72`, `73`, `74`, `75`, `77`, `141` FROM `$mytimetable`WHERE timestamp > ((SELECT UNIX_TIMESTAMP()) - $timeframe)";
 		break;
-	case operation:
-	case impulse:
+	case "operation":
+	case "impulse":
 		$query = "SELECT `timestamp`, `56`, `57`, `60`, `63`, `64`, `65` FROM `$myoptable`WHERE timestamp > ((SELECT UNIX_TIMESTAMP()) - $timeframe)";
 		break;
 	default:
@@ -65,17 +65,17 @@ try {
 			// get results
 			if ($result = $mysqli->use_result()) {
 				while ($row = $result->fetch_array(MYSQLI_ASSOC)) { // fetch_row()) {
-					switch ($_GET["context"]) {
-						case timing;
+					switch (filter_input(INPUT_GET, 'context')) {
+						case "timing";
 							printf("\t\t{date:\"%s\", Waermepumpe:\"%s\", ZweiteWaermequelle:\"%s\", Netzeinschaltverzoegerung:\"%s\", SchaltspielsperreAus:\"%s\", SchaltspielsperreEin:\"%s\", VerdichterSteht:\"%s\", HeizungsReglerMehr:\"%s\", HeizungsReglerWeniger:\"%s\", Brauchwassersperre:\"%s\", Abtauen:\"%s\"},\n", ($row['timestamp']*1000), ($row["67"]/60), ($row["68"]/60), ($row["70"]/60), ($row["71"]/60), ($row["72"]/60), ($row["73"]/60), ($row["74"]/60), ($row["75"]/60), ($row["77"]/60), ($row["141"]/60));
 							break;
-						case impulse;
+						case "impulse";
 							printf("\t\t{date:\"%s\", ImpulseVerdichter:\"%s\"},\n", ($row['timestamp']*1000), ($row["57"]));
 							break;
-						case operation;
+						case "operation";
 							printf("\t\t{date:\"%s\", BetriebszeitVerdichter:\"%s\", BetriebszeitZweiterWaermeerzeuger:\"%s\", BetriebszeitWaermepumpe:\"%s\", BetriebszeitHeizung:\"%s\", BetriebszeitBrauchwasser:\"%s\"},\n", ($row['timestamp']*1000), ($row["56"]/3600), ($row["60"]/3600), ($row["63"]/3600), ($row["64"]/3600), ($row["65"]/3600));
 							break;
-						case temperature:
+						case "temperature":
 							printf("\t\t{date:\"%s\", Aussentemperatur:\"%s\", Mittelwerttemperatur:\"%s\", Brauchwasser:\"%s\", Vorlauf:\"%s\", Ruecklauf:\"%s\", RuecklaufSoll:\"%s\", RuecklaufExtern:\"%s\", Heissgas:\"%s\", BrauchwasserSoll:\"%s\"},\n", ($row['timestamp']*1000), ($row["15"]*0.1), ($row["16"]*0.1), ($row["17"]*0.1), ($row["10"]*0.1), ($row["11"]*0.1), ($row["12"]*0.1), ($row["13"]*0.1), ($row["14"]*0.1), ($row["18"]*0.1));
 							break;
 						default:
@@ -101,17 +101,17 @@ $mysqli->close();
     var myStyleDef = {
         series: {
 <?php
-switch ($_GET["context"]) {
-        case timing;
+switch (filter_input(INPUT_GET, 'context')) {
+        case "timing";
 		$series = array("Waermepumpe", "ZweiteWaermequelle", "Netzeinschaltverzoegerung", "SchaltspielsperreAus","SchaltspielsperreEin", "VerdichterSteht", "HeizungsReglerMehr","HeizungsReglerWeniger", "Brauchwassersperre", "Abtauen");
                 break;
-	case impulse;
+	case "impulse";
 		$series = array("ImpulseVerdichter");
 		break;
-        case operation;
+        case "operation";
 		$series = array("BetriebszeitVerdichter", "BetriebszeitZweiterWaermeerzeuger", "BetriebszeitWaermepumpe", "BetriebszeitHeizung", "BetriebszeitBrauchwasser");
                 break;
-        case temperature:
+        case "temperature":
 		$series = array("Aussentemperatur", "Mittelwerttemperatur", "Brauchwasser", "Vorlauf", "Ruecklauf", "RuecklaufSoll", "RuecklaufExtern", "Heissgas", "BrauchwasserSoll");
                 break;
         default:
