@@ -8,7 +8,7 @@ include "includes/config.php";
 // database config
 include "includes/sql_cred.php";
 // database query
-switch ($_GET["context"]) {
+switch (filter_input(INPUT_GET, 'context')) {
 	case timing:
 		$query = "SELECT `timestamp`, `67`, `68`, `70`, `71`, `72`, `73`, `74`, `75`, `77`, `141` FROM `$mytimetable`WHERE timestamp > ((SELECT UNIX_TIMESTAMP()) - $timeframe)";
 		break;
@@ -65,7 +65,7 @@ try {
 			// get results
 			if ($result = $mysqli->use_result()) {
 				while ($row = $result->fetch_array(MYSQLI_ASSOC)) { // fetch_row()) {
-					switch ($_GET["context"]) {
+					switch (filter_input(INPUT_GET, 'context')) {
 						case timing;
 							printf("\t\t{date:\"%s\", Waermepumpe:\"%s\", ZweiteWaermequelle:\"%s\", Netzeinschaltverzoegerung:\"%s\", SchaltspielsperreAus:\"%s\", SchaltspielsperreEin:\"%s\", VerdichterSteht:\"%s\", HeizungsReglerMehr:\"%s\", HeizungsReglerWeniger:\"%s\", Brauchwassersperre:\"%s\", Abtauen:\"%s\"},\n", ($row['timestamp']*1000), ($row["67"]/60), ($row["68"]/60), ($row["70"]/60), ($row["71"]/60), ($row["72"]/60), ($row["73"]/60), ($row["74"]/60), ($row["75"]/60), ($row["77"]/60), ($row["141"]/60));
 							break;
@@ -101,7 +101,7 @@ $mysqli->close();
     var myStyleDef = {
         series: {
 <?php
-switch ($_GET["context"]) {
+switch (filter_input(INPUT_GET, 'context')) {
         case timing;
 		$series = array("Waermepumpe", "ZweiteWaermequelle", "Netzeinschaltverzoegerung", "SchaltspielsperreAus","SchaltspielsperreEin", "VerdichterSteht", "HeizungsReglerMehr","HeizungsReglerWeniger", "Brauchwassersperre", "Abtauen");
                 break;
