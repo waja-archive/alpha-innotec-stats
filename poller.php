@@ -10,6 +10,9 @@ include "includes/sql_cred.php";
 //Variablen
 $sBuff = 0;
 $JavaWerte = 0; 
+
+// collecting data
+
 // connecten
 $socket = socket_create(AF_INET, SOCK_STREAM,0);
 $connect = socket_connect($socket, $IpWwc, $WwcJavaPort) || exit("socket_connect fehlgeschlagen"); 
@@ -57,7 +60,12 @@ $daten_raw[$i] = implode(unpack('l',strrev($InBuff[$i])));
 }
 //socket wieder schliessen 
 socket_close($socket);
-//Connect to the database. (host,username,password,database)
+
+// writing data
+
+// MySQL
+
+// Connect to the database. (host,username,password,database)
 $mysqli = mysqli_connect($myhost, $myuser, $mypasswd, $mydatabase);
 // Check for errors connecting to database.
 if (mysqli_connect_errno()) {
