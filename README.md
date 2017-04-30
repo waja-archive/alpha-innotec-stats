@@ -63,3 +63,45 @@ Please add the following via 'crontab -e', but try avoiding this as root
 	* * * * * php -q /var/www/heating/poller.php
 
 Feel free to adjust the frequency running the poller script to your needs.
+
+## Value documentation
+
+### Timing 
+
+| value | value number | multiplicator |
+| --- | --- | --- |
+| Waermepumpe | 67 | 1/60 |
+| ZweiteWaermequelle | 68 | 1/60 |
+| Netzeinschaltverzoegerung | 70 | 1/60 |
+| SchaltspielsperreAus | 71 | 1/60 |
+| SchaltspielsperreEin | 72 | 1/60 |
+| VerdichterSteht | 73 | 1/60 |
+| HeizungsReglerMehr | 74 | 1/60 |
+| HeizungsReglerWeniger | 75 | 1/60 |
+| Brauchwassersperre | 77 | 1/60 |
+| Abtauen | 141 | 1/60 |
+
+### Operations
+
+| value | value number | multiplicator |
+| --- | --- | --- |
+| ImpulseVerdichter | 57 | 1000 |
+| BetriebszeitVerdichter | 56 | 1/3600 |
+| BetriebszeitZweiterWaermeerzeuger | 60 | 1/3600 |
+| BetriebszeitWaermepumpe | 63 | 1/3600 |
+| BetriebszeitHeizung | 64 | 1/3600 |
+| BetriebszeitBrauchwasser | 65 | 1/3600 |
+
+### Temperature
+
+| value | value number | multiplicator |
+| --- | --- | --- |
+| Vorlauf | 10 | 1/10 |
+| Ruecklauf | 11 | 1/10 |
+| RuecklaufSoll | 12 | 1/10 |
+| RuecklaufExtern | 13 | 1/10 |
+| Heissgas | 14 | 1/10 |
+| Aussentemperatur | 15 | 1/10 |
+| Mittelwerttemperatur | 16 | 1/10 |
+| Brauchwasser | 17 | 1/10 |
+| BrauchwasserSoll | 18 | 1/10 |
